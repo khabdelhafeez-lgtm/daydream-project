@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://fg6k85kg5qyx"]
+
+[ext_resource type="Script" uid="uid://cfl08q810a7nv" path="res://area_2d.gd" id="1_dl81w"]
+[ext_resource type="Texture2D" uid="uid://cfiluxgjn5dd4" path="res://tilemap_packed.png" id="2_5rgpn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c0nl8"]
+radius = 48.125008
+height = 187.50003
+
+[node name="Area2D" type="Area2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_dl81w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-55.100006, 12.699997)
+scale = Vector2(3.1375003, 4.4125)
+texture = ExtResource("2_5rgpn")
+region_enabled = true
+region_rect = Rect2(144, 112, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-53.600002, 11)
+scale = Vector2(0.32, 0.32)
+shape = SubResource("CapsuleShape2D_c0nl8")
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[connection signal="body_entered" from="." to="." method="coins"]
